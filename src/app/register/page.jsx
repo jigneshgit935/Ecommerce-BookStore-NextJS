@@ -1,10 +1,10 @@
 'use client';
-
 import React, { useState } from 'react';
 import classes from './register.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { signIn } from 'next-auth/react';
+
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -18,8 +18,8 @@ const Register = () => {
       return;
     }
 
-    if (password < 6) {
-      toast.error('Password must be atleast 6 characters');
+    if (password.length < 6) {
+      toast.error('Password must be at least 6 characters');
       return;
     }
 
@@ -36,6 +36,7 @@ const Register = () => {
         }),
       });
 
+      // 2xx
       if (res.ok) {
         toast.success('Successfully registered the user');
         setTimeout(() => {
@@ -49,9 +50,10 @@ const Register = () => {
       console.log(error);
     }
   };
+
   return (
     <div className={classes.container}>
-      <div className={classes.wrappper}>
+      <div className={classes.wrapper}>
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <input

@@ -6,6 +6,7 @@ async function connect() {
   if (connection.isConnected) {
     return;
   }
+
   if (mongoose.connections.length > 0) {
     connection.isConnected = mongoose.connections[0].readyState;
     if (connection.isConnected === 1) {
@@ -18,4 +19,5 @@ async function connect() {
 }
 
 const db = { connect };
+
 export default db;

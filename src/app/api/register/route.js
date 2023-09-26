@@ -5,7 +5,11 @@ import User from '@/models/User';
 export async function POST(req) {
   try {
     await db.connect();
+
     const { username, email, password: pass } = await req.json();
+
+    console.log(username, email, pass);
+
     const isExisting = await User.findOne({ email });
 
     if (isExisting) {
@@ -20,7 +24,7 @@ export async function POST(req) {
       password: hashedPassword,
     });
 
-    const { password, ...user } = newUser._dov;
+    const { password, ...user } = newUser._doc;
 
     return new Response(JSON.stringify(user), { status: 201 });
   } catch (error) {

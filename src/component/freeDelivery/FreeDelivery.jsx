@@ -1,5 +1,5 @@
 import React from 'react';
-import './freeDelivery.module.css';
+import classes from './freeDelivery.module.css';
 const FreeDelivery = () => {
   return <div>FreeDelivery</div>;
 };

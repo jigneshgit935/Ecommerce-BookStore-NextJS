@@ -1,5 +1,8 @@
+import Navbar from '@/component/navbar/Navbar';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Footer from '@/component/footer/Footer';
+import SessionProvider from './SessionProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,11 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* session provider */}
-        {/* navbar */}
-        {children}
+        <SessionProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
-      {/* footer */}
     </html>
   );
 }

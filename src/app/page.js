@@ -3,7 +3,7 @@ import BookCatalog from '@/component/bookCatalog/BookCatalog';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <Hero />
       <BookCatalog />
     </main>
